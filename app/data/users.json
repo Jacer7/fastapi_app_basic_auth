@@ -1,0 +1,23 @@
+{
+    "alice": {
+        "password": "wonderland",
+        "email": "alice@example.com",
+        "user_type": "student"
+    },
+    "bob": {
+        "password": "builder",
+        "email": "bob@example.com",
+        "user_type": "student"
+
+    },
+    "clementine": {
+        "password": "mandarine",
+        "email": "clementine@example.com",
+        "user_type": "student"
+    },
+    "admin": {
+        "password": "4dm1N",
+        "email": "admin@example.com",
+        "user_type": "admin"
+    }
+}
