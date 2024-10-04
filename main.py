@@ -4,7 +4,7 @@ from app.api.v1.endpoints import users, create_question
 from app.api.v1.endpoints import generate_questions
 
 app = FastAPI()
-lambda_handler = Mangum(app)
+handler = Mangum(app)
 
 # Register routers
 app.include_router(users.router, prefix="/api/v1", tags=["Users"])

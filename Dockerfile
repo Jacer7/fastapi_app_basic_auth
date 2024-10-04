@@ -11,4 +11,4 @@ RUN pip install --upgrade pip && pip install -r requirements.txt --target "${LAM
 COPY . "${LAMBDA_TASK_ROOT}"
 
 # Specify the Lambda handler (Mangum adapter)
-CMD ["main.lambda_handler"]
+CMD ["main.handler"]
