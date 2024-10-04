@@ -1,6 +1,8 @@
 from fastapi import FastAPI
+from mangum import Mangum
 from app.api.v1.endpoints import users, create_question
 from app.api.v1.endpoints import generate_questions
+
 app = FastAPI()
 
 # Register routers
@@ -15,6 +17,7 @@ def read_root():
     return {"message": "Welcome to the FastAPI Application"}
 
 
+lambda_handler = Mangum(app)
 
 if __name__ == "__main__":
     import uvicorn

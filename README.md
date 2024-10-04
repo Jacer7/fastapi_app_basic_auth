@@ -89,3 +89,35 @@ The root folder is FASTAPI_APP: Run the following command to get your uvicorn se
 uvicorn app.main:app --reload
 ```
 
+# Request Body
+## For Student login
+
+```
+{
+  "test_type": "Positioning test",
+  "categories": [
+    "Databases"
+  ],
+  "num_questions": 5
+}
+```
+## For Admin Login
+```
+{
+  "question": "is mongdo is a sql or nosql database? ",
+  "test_type": "Positioning test",
+  "category": [
+    "Databases"
+  ],
+  "correct_answer": "A",
+  "responseA": "NoSql",
+  "responseB": "Sql",
+  "responseC": "All",
+  "responseD": "Graph",
+  "remark": ""
+}
+```
+
+
+docker build -t fastapi-lambda:test .
+docker run -p 8000:8000 -- fastapi-lambda:test
