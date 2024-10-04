@@ -60,4 +60,12 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ${{ env.AWS_REGION }}
 
+    - name: Clean up untagged images
+      run: |
+        aws ecr list-images --repository-name $ECR_REPOSITORY --filter "tagStatus=UNTAGGED" --query "imageIds[*]" --output json > untagged_images.json
+        if [ -s untagged_images.json ]; then
+          aws ecr batch-delete-image --repository-name $ECR_REPOSITORY --image-ids file://untagged_images.json
+        fi
+
+
 
