@@ -121,3 +121,8 @@ uvicorn app.main:app --reload
 
 docker build -t fastapi-lambda:test .
 docker run -p 8000:8000 -- fastapi-lambda:test
+
+
+
+docker pull 260320279955.dkr.ecr.eu-west-3.amazonaws.com/fastapi-deploy:lambda
+docker run --platform linux/amd64 -p 8000:8000 260320279955.dkr.ecr.eu-west-3.amazonaws.com/fastapi-deploy:lambda
