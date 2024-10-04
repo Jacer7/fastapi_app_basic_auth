@@ -1,4 +1,4 @@
-# Use the AWS Lambda Python 3.12 base image
+# Use the AWS Lambda Python 3.11 base image
 FROM public.ecr.aws/lambda/python:3.11
 
 # Set the working directory in the container
@@ -13,4 +13,4 @@ RUN pip install --upgrade pip \
 COPY . .
 
 # Specify the Lambda handler (Mangum adapter)
-CMD ["main.lambda_handler"]
+CMD ["main.lambda_handler"]  
