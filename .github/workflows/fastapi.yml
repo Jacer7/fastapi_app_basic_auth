@@ -43,14 +43,12 @@ jobs:
         echo "ECR_Registry:=$ECR_REGISTRY"
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "image_pushed=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_ENV
-        echo "image_pushed=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+        echo "IMAGE_URI=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_ENV
 
     - name: Log the pushed image
       id: Output
       run: |
-        echo "The registry is: ${{ steps.build-image.outputs.ECR_Registry }}"
-        echo "The pushed image is: ${{ steps.build-image.outputs.image_pushed }}"
+        echo "The pushed image is: ${{ env.IMAGE_URI }}"
 
     - name: Update AWS Lambda function with the new image
       run: |
