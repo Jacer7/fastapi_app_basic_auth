@@ -11,7 +11,7 @@ handler = Mangum(app)
 app.include_router(users.router, prefix="/api/v1", tags=["users"])
 app.include_router(generate_questions.router, prefix="/api/v1", tags=["questions"])
 app.include_router(create_question.router, prefix="/api/v1", tags=["admin"])
-app.include_router(test.router, prefix="/api/v1", tags=["test-api"])
+app.include_router(test.router, prefix="/api/v1", tags=["testapi"])
 
 
 @app.get("/")

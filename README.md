@@ -106,9 +106,7 @@ uvicorn app.main:app --reload
 {
   "question": "is mongdo is a sql or nosql database? ",
   "test_type": "Positioning test",
-  "category": [
-    "Databases"
-  ],
+  "category":"Databases",
   "correct_answer": "A",
   "responseA": "NoSql",
   "responseB": "Sql",
@@ -127,3 +125,28 @@ docker run -p 8000:8000 -- fastapi-lambda:test
 docker pull 260320279955.dkr.ecr.eu-west-3.amazonaws.com/fastapi-deploy:lambda
 <!-- docker run --platform linux/amd64 -p 8000:8000 260320279955.dkr.ecr.eu-west-3.amazonaws.com/fastapi-deploy:lambda -->
 docker run -p 8000:8000 260320279955.dkr.ecr.eu-west-3.amazonaws.com/fastapi-deploy:lambda
+
+
+
+
+curl -X 'GET' \
+  'https://qvlryg2tipz5ux2dhonoqqxowe0vueyq.lambda-url.eu-west-3.on.aws/api/v1/login' \
+  -H 'accept: application/json' \
+  -u 'alice:wonderland'
+
+
+curl -X 'GET' \
+  'https://qvlryg2tipz5ux2dhonoqqxowe0vueyq.lambda-url.eu-west-3.on.aws/api/v1/login' \
+  -H 'accept: application/json' \
+  -u 'admin:4dm1N'
+
+
+curl -X POST \
+  'https://qvlryg2tipz5ux2dhonoqqxowe0vueyq.lambda-url.eu-west-3.on.aws/api/v1/generate_mcqs' \
+  -H 'Content-Type: application/json' \
+  -u 'alice:wonderland' \
+  -d '{
+    "test_type": "Positioning test",
+    "categories": ["Databases"],
+    "num_questions": 5
+  }'
