@@ -63,3 +63,6 @@ def generate_mcqs(
             "num_questions": request.num_questions,
             "status": "success",
             "user": user["user_type"]}
+    
+    
+
